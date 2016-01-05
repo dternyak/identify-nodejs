@@ -42,7 +42,7 @@ app.get('/', function response(req, res) {
         if (!(hash in obj)) {
             obj[hash] = ua;
 
-            jsonfile.writeFile(file, to_write, function (err) {
+            jsonfile.writeFile(file, obj, function (err) {
                 res.writeHead(200, {'Content-Type': 'text/plain'});
                 res.end("YOU ARE NEW:" + hash);
             })
