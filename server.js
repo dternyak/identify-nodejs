@@ -40,8 +40,7 @@ app.get('/', function response(req, res) {
     jsonfile.readFile(file, function (err, obj) {
 
         if (!(hash in obj)) {
-            const to_write = {};
-            to_write[hash] = ua;
+            obj[hash] = ua;
 
             jsonfile.writeFile(file, to_write, function (err) {
                 res.writeHead(200, {'Content-Type': 'text/plain'});
